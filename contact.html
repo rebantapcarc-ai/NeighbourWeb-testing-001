@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeighborWeb Studios | Contact & Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        accent: {
+                            500: '#22c55e',
+                            600: '#16a34a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-br from-slate-100 via-blue-100 to-purple-100 font-sans text-slate-900 relative min-h-screen">
+
+    <!-- Cursor Glow Effect -->
+    <div id="cursor-glow" class="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300 opacity-0"
+        style="background: radial-gradient(600px circle at var(--x) var(--y), rgba(14, 165, 233, 0.15), transparent 80%);">
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.getElementById('cursor-glow');
+            glow.style.setProperty('--x', e.clientX + 'px');
+            glow.style.setProperty('--y', e.clientY + 'px');
+            glow.style.opacity = '1';
+        });
+    </script>
+
+    <!-- Navbar -->
+    <nav class="bg-white/50 backdrop-blur-md sticky top-0 z-50 border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="demo.html" class="flex-shrink-0 flex items-center gap-2">
+                        <img src="logo.svg" class="h-9 w-9" alt="NeighborWeb Logo">
+                        <span class="font-bold text-xl tracking-tight text-gray-900">NeighborWeb</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="services.html"
+                        class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm transition-colors">Services</a>
+                    <a href="demo.html#pricing"
+                        class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm transition-colors">Pricing</a>
+                    <a href="demo.html"
+                        class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm transition-colors">About</a>
+                    <a href="contact.html"
+                        class="inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white shadow-sm focus:ring-brand-500 px-3 py-1.5 text-sm">
+                        Book a Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Content -->
+    <section class="py-20 lg:py-32 bg-transparent relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+            <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-6">Let's Build Something Amazing</h1>
+            <p class="text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Ready to take your business to the next level? Send us an email directly for the fastest reply. We
+                usually respond within 24 hours.
+            </p>
+
+            <div
+                class="bg-white/60 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-8 md:p-12 inline-block w-full max-w-2xl">
+                <div class="flex flex-col items-center">
+                    <div class="bg-brand-100 p-4 rounded-full mb-6">
+                        <i data-lucide="mail" class="h-10 w-10 text-brand-600"></i>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2">Email Us Directly</h2>
+                    <p class="text-slate-500 mb-8">Click below to send us a message</p>
+
+                    <a href="mailto:pixelweldstudios@gmail.com"
+                        class="text-2xl sm:text-3xl font-bold text-brand-600 hover:text-brand-700 transition-colors break-all">
+                        pixelweldstudios@gmail.com
+                    </a>
+
+                    <a href="mailto:pixelweldstudios@gmail.com"
+                        class="mt-8 inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white shadow-lg focus:ring-brand-500 px-8 py-4 text-lg">
+                        <i data-lucide="send" class="h-5 w-5 mr-2"></i> Send Message
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="demo.html" class="flex items-center gap-2 mb-4">
+                        <img src="logo.svg" class="h-9 w-9" alt="NeighborWeb Logo">
+                        <span class="font-bold text-xl tracking-tight text-white">NeighborWeb</span>
+                    </a>
+                    <p class="text-slate-400 text-sm mb-4">
+                        Helping local businesses win online with high-converting, AI-powered websites.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-slate-200 tracking-wider uppercase mb-4">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-slate-400 hover:text-white text-sm">Web Design</a></li>
+                        <li><a href="services.html" class="text-slate-400 hover:text-white text-sm">AI Integration</a>
+                        </li>
+                        <li><a href="services.html" class="text-slate-400 hover:text-white text-sm">SEO Setup</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-slate-200 tracking-wider uppercase mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="demo.html" class="text-slate-400 hover:text-white text-sm">About Us</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white text-sm">Contact</a></li>
+                        <li><a href="demo.html#pricing" class="text-slate-400 hover:text-white text-sm">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-slate-200 tracking-wider uppercase mb-4">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-2 text-slate-400 text-sm">
+                            <i data-lucide="mail" class="h-4 w-4"></i>
+                            <a href="mailto:pixelweldstudios@gmail.com"
+                                class="hover:text-white">pixelweldstudios@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-slate-800 pt-8">
+                <p class="text-base text-slate-500 text-center">
+                    &copy; 2026 NeighborWeb Studios. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeighborWeb Studios | AI Web Agency Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        accent: {
+                            500: '#22c55e',
+                            600: '#16a34a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-br from-slate-100 via-blue-100 to-purple-100 font-sans text-slate-900 relative min-h-screen">
+
+    <!-- Cursor Glow Effect -->
+    <div id="cursor-glow" class="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300 opacity-0"
+        style="background: radial-gradient(600px circle at var(--x) var(--y), rgba(14, 165, 233, 0.15), transparent 80%);">
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.getElementById('cursor-glow');
+            glow.style.setProperty('--x', e.clientX + 'px');
+            glow.style.setProperty('--y', e.clientY + 'px');
+            glow.style.opacity = '1';
+        });
+    </script>
+
+    <!-- Navbar -->
+    <nav class="bg-white/50 backdrop-blur-md sticky top-0 z-50 border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="demo.html" class="flex-shrink-0 flex items-center gap-2">
+                        <img src="logo.svg" class="h-9 w-9" alt="NeighborWeb Logo">
+                        <span class="font-bold text-xl tracking-tight text-gray-900">NeighborWeb</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="services.html"
+                        class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm transition-colors">Services</a>
+                    <a href="#pricing"
+                        class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm transition-colors">Pricing</a>
+                    <a href="demo.html"
+                        class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm transition-colors">About</a>
+                    <a href="contact.html"
+                        class="inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-lg bg-brand-600 hover:bg-brand-700 text-white shadow-sm focus:ring-brand-500 px-3 py-1.5 text-sm">
+                        Book a Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-28 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
+                Get More Customers with an <span class="text-brand-600">AI-Powered Website</span>
+            </h1>
+            <p class="text-xl text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                We build professional, high-converting websites for local businesses. Fast delivery, affordable pricing,
+                and zero technical headaches.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#"
+                    class="inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white shadow-sm focus:ring-brand-500 px-6 py-3 text-base w-full sm:w-auto">
+                    Book a Free Call - It's Fast
+                </a>
+                <a href="#pricing"
+                    class="inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 shadow-sm focus:ring-brand-500 px-6 py-3 text-base w-full sm:w-auto">
+                    View Pricing
+                </a>
+            </div>
+            <div class="mt-8 flex items-center justify-center gap-2 text-sm text-slate-500">
+                <i data-lucide="check-circle-2" class="h-4 w-4 text-green-500"></i> No credit card required for
+                consultation
+            </div>
+        </div>
+
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full z-0 pointer-events-none">
+            <div
+                class="absolute top-[20%] left-[10%] w-72 h-72 bg-brand-200/50 rounded-full blur-3xl mix-blend-multiply filter opacity-70 animate-blob">
+            </div>
+            <div
+                class="absolute top-[20%] right-[10%] w-72 h-72 bg-purple-200/50 rounded-full blur-3xl mix-blend-multiply filter opacity-70 animate-blob">
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-10 bg-slate-50 border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm font-semibold text-slate-500 tracking-wide uppercase mb-6">Trusted by local businesses
+                like yours</p>
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex items-center justify-center font-bold text-xl text-slate-400">APEX GYM</div>
+                <div class="flex items-center justify-center font-bold text-xl text-slate-400">CITY DENTAL</div>
+                <div class="flex items-center justify-center font-bold text-xl text-slate-400">ELITE ROOFING</div>
+                <div class="flex items-center justify-center font-bold text-xl text-slate-400">FRESH BOWL</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="py-12 md:py-16 lg:py-24 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Everything You Need to Win Online</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    We don't just build websites; we build growth engines. Here is what you get with every package.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white/60 backdrop-blur-sm rounded-xl shadow-sm border border-white/20 p-6 hover:shadow-md transition-shadow">
+                    <div class="bg-brand-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="layout-template" class="h-6 w-6 text-brand-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Modern Design</h3>
+                    <p class="text-slate-600 mb-4">
+                        Clean, mobile-first designs that look great on any device and build instant trust with your
+                        visitors.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-white/60 backdrop-blur-sm rounded-xl shadow-sm border border-white/20 p-6 hover:shadow-md transition-shadow">
+                    <div class="bg-brand-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="zap" class="h-6 w-6 text-brand-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Lightning Fast</h3>
+                    <p class="text-slate-600 mb-4">
+                        Optimized for speed so your customers never wait. Google loves fast sites, and so do your users.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-white/60 backdrop-blur-sm rounded-xl shadow-sm border border-white/20 p-6 hover:shadow-md transition-shadow">
+                    <div class="bg-brand-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="h-6 w-6 text-brand-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">AI Integration</h3>
+                    <p class="text-slate-600 mb-4">
+                        Smart usage of AI for content generation and basic chatbots to help capture leads 24/7.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg border-2 border-brand-600 text-brand-600 hover:bg-brand-50 focus:ring-brand-500 px-4 py-2 text-sm">
+                    Explore All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    No hidden fees. Choose the plan that fits your business stage.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Basic Plan -->
+                <div
+                    class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-gray-200 flex flex-col p-8 hover:shadow-lg transition-all duration-300">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Basic</h3>
+                    <div class="flex items-baseline mb-4">
+                        <span class="text-4xl font-extrabold text-slate-900">$699</span>
+                        <span class="ml-2 text-slate-500 text-sm">/one-time</span>
+                    </div>
+                    <p class="text-slate-600 mb-6 text-sm">For small businesses that just need to get online.</p>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">Professional 5-page website</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">Mobile-friendly & fast</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">Basic SEO setup</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">7-day delivery</span>
+                        </li>
+                    </ul>
+                    <a href="#"
+                        class="inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg border-2 border-brand-600 text-brand-600 hover:bg-brand-50 focus:ring-brand-500 px-4 py-2 text-sm w-full">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Growth Plan -->
+                <div
+                    class="relative bg-white rounded-2xl shadow-xl border border-brand-500 flex flex-col p-8 scale-105 z-10">
+                    <div
+                        class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-600 text-white px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase shadow-md">
+                        Best Value
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Growth</h3>
+                    <div class="flex items-baseline mb-4">
+                        <span class="text-4xl font-extrabold text-slate-900">$1199</span>
+                        <span class="ml-2 text-slate-500 text-sm">/one-time</span>
+                    </div>
+                    <p class="text-slate-600 mb-6 text-sm">For businesses that want a strong brand presence.</p>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">Everything in Basic</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">Custom Logo Design</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">Custom color palette & typography</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">AI Website Assistant</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">14-day delivery</span>
+                        </li>
+                    </ul>
+                    <a href="#"
+                        class="inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white shadow-sm focus:ring-brand-500 px-4 py-2 text-sm w-full">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Premium Plan -->
+                <div
+                    class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-gray-200 flex flex-col p-8 hover:shadow-lg transition-all duration-300">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Premium</h3>
+                    <div class="flex items-baseline mb-4">
+                        <span class="text-4xl font-extrabold text-slate-900">$1499</span>
+                        <span class="ml-2 text-slate-500 text-sm">/one-time</span>
+                    </div>
+                    <p class="text-slate-600 mb-6 text-sm">For businesses that want done-for-you peace of mind.</p>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">Everything in Growth</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">Priority delivery (7-10 days)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">2 weeks post-launch support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">1 guaranteed revision round</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2"
+                                class="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-700 text-sm">Full setup + deployment</span>
+                        </li>
+                    </ul>
+                    <a href="#"
+                        class="inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg border-2 border-brand-600 text-brand-600 hover:bg-brand-50 focus:ring-brand-500 px-4 py-2 text-sm w-full">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="#" class="flex items-center gap-2 mb-4">
+                        <img src="logo.svg" class="h-9 w-9" alt="NeighborWeb Logo">
+                        <span class="font-bold text-xl tracking-tight text-white">NeighborWeb</span>
+                    </a>
+                    <p class="text-slate-400 text-sm mb-4">
+                        Helping local businesses win online with high-converting, AI-powered websites.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-slate-200 tracking-wider uppercase mb-4">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-slate-400 hover:text-white text-sm">Web Design</a></li>
+                        <li><a href="services.html" class="text-slate-400 hover:text-white text-sm">AI Integration</a>
+                        </li>
+                        <li><a href="services.html" class="text-slate-400 hover:text-white text-sm">SEO Setup</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-slate-200 tracking-wider uppercase mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="demo.html" class="text-slate-400 hover:text-white text-sm">About Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white text-sm">Contact</a></li>
+                        <li><a href="#pricing" class="text-slate-400 hover:text-white text-sm">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-slate-200 tracking-wider uppercase mb-4">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-2 text-slate-400 text-sm">
+                            <i data-lucide="mail" class="h-4 w-4"></i>
+                            <a href="mailto:pixelweldstudios@gmail.com"
+                                class="hover:text-white">pixelweldstudios@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-slate-800 pt-8">
+                <p class="text-base text-slate-500 text-center">
+                    &copy; 2026 NeighborWeb Studios. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
